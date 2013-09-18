@@ -15,7 +15,7 @@ if sys.argv[-1] == 'publish':
 packages = [
     'garbled_characters_detecter']
 
-requires = []
+requires = ["chardet"]
 
 setup(
     name='garbled_characters_detecter',
@@ -26,7 +26,7 @@ setup(
     author_email='yankaycom@gmail.com',
     url='https://github.com/yankay/garbled-characters-detecter',
     packages=packages,
-    package_data={'': ['LICENSE', 'NOTICE'], 'garbled_characters_detecter': ['*.data']},
+    package_data={'': ['LICENSE', 'NOTICE'], 'garbled_characters_detecter': ['*.txt']},
     package_dir={'garbled_characters_detecter': 'garbled_characters_detecter'},
     include_package_data=True,
     install_requires=requires,
@@ -42,6 +42,5 @@ setup(
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.3',
-
     ),
 )
