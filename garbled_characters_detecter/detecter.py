@@ -53,3 +53,25 @@ def detect(text=u"", encodings=["utf_8", "gbk", "big5", "latin_1"], lang="zh-CN"
 #         LOG.warn("cannot load svm_classifyer")
     potentials.reverse()
     return potentials
+
+def main():
+    import sys
+    import os
+    if len(sys.argv) <= 1:
+        print "garbled-characters-detecter [Filename or Garbled chars]"
+    else:
+        str = sys.argv[1].decode('utf_8')
+        if os.path.exists(sys.argv[1]):
+            with open(sys.argv[1] ) as f:
+                str = "".join(f.readlines()).decode('utf_8')
+        d = detect(str, ["utf_8", "gbk", "latin_1"], "zh-CN")
+        for i in range(0,min(3,len(d))):
+            e = d[i]
+            print "===========%s============" % i
+            print u"from code: %s:" % e['from_encode']
+            print u"to   code: %s:" % e['to_encode']
+            print u"org  text: %s:" % e['from_text_ignore']
+          
+
+if __name__ == '__main__':
+    main()

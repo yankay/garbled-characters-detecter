@@ -15,7 +15,7 @@ if sys.argv[-1] == 'publish':
 packages = [
     'garbled_characters_detecter']
 
-requires = ["chardet","scikit-learn"]
+requires = ["chardet"]
 
 setup(
     name='garbled_characters_detecter',
@@ -42,5 +42,10 @@ setup(
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.3',
-    ),
+    ), 
+    entry_points = {
+     'console_scripts': [
+       'garbled-characters-detecter = garbled_characters_detecter.detecter:main'
+     ]
+   }
 )
