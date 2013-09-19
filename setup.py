@@ -15,7 +15,7 @@ if sys.argv[-1] == 'publish':
 packages = [
     'garbled_characters_detecter']
 
-requires = ["chardet","sklearn"]
+requires = ["chardet","scikit-learn"]
 
 setup(
     name='garbled_characters_detecter',
